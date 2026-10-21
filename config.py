@@ -1,6 +1,8 @@
-DEEPSEEK_API_KEY = "your-api-key"
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-DEEPSEEK_MODEL = "deepseek-chat"
+import os
+
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
 
 MIN_CONVERGENCE_MESSAGES = 80
 MAX_AGENT_MESSAGE_CHARS = 520

@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="http://49.235.185.187:8080/">在线体验</a>
+  <a href="http://124.221.200.162:8084/">在线体验</a>
   ·
   <a href="#快速开始">快速开始</a>
   ·
@@ -45,7 +45,7 @@ Marvis Foresight Room 是一个实验性的多人物讨论空间。你给它一�
 这个项目想让 **答案形成的过程** 变得可见。
 
 <p align="center">
-  <a href="http://49.235.185.187:8080/">
+  <a href="http://124.221.200.162:8084/">
     <img src="docs/screenshots/live-room.webp" alt="Marvis Foresight Room live room" width="92%" />
   </a>
 </p>
@@ -145,7 +145,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-配置模型。把 `config.py` 里的 `DEEPSEEK_API_KEY` 改成你的 key；默认模型是 `deepseek-chat`。
+配置模型。在项目根目录创建 `.env`（不要提交到 Git）：
+
+```dotenv
+DEEPSEEK_API_KEY=你的DeepSeekKey
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-chat
+```
 
 启动：
 
@@ -158,6 +164,12 @@ python main.py
 ```text
 http://localhost:8080
 ```
+
+## 服务器部署
+
+当前在线地址：<http://124.221.200.162:8084/>。
+
+使用共用 `shared_nginx` 网关，应用由独立 systemd 服务管理。配置及维护方式见 [deploy/README.md](deploy/README.md)。
 
 ## API 一览
 

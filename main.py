@@ -196,6 +196,13 @@ async def bootstrap():
     }
 
 
+@app.get("/api/health")
+async def health():
+    with store.connect() as conn:
+        conn.execute("SELECT 1")
+    return {"status": "ok"}
+
+
 @app.post("/api/topic")
 async def api_topic(payload: TopicRequest):
     description = payload.description.strip()
